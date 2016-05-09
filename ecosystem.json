@@ -1,0 +1,36 @@
+{
+  "apps" : [
+    {
+      "name"      : "api-with-node",
+      "script"    : "bin/www",
+      "env": {
+        "COMMON_VARIABLE": "true"
+      },
+      "env_production" : {
+        "NODE_ENV": "production"
+      }
+    }
+  ],
+
+  "deploy" : {
+    "production" : {
+      "user" : "root",
+      "host" : "52.77.237.129",
+      "ref"  : "origin/master",
+      "repo" : "https://github.com/littleplantstudio/api-with-node.git",
+      "path" : "/var/www/production",
+      "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env production"
+    },
+    "dev" : {
+      "user" : "root",
+      "host" : "52.77.237.129",
+      "ref"  : "origin/master",
+      "repo" : "https://github.com/littleplantstudio/api-with-node.git",
+      "path" : "/var/www/development",
+      "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env dev",
+      "env"  : {
+        "NODE_ENV": "dev"
+      }
+    }
+  }
+}
