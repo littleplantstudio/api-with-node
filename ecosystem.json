@@ -14,7 +14,7 @@
 
   "deploy" : {
     "production" : {
-      "user" : "root",
+      "user" : "nodejs",
       "host" : "52.77.237.129",
       "ref"  : "origin/master",
       "repo" : "https://github.com/littleplantstudio/api-with-node.git",
@@ -22,7 +22,7 @@
       "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env production"
     },
     "dev" : {
-      "user" : "root",
+      "user" : "nodejs",
       "host" : "52.77.237.129",
       "ref"  : "origin/master",
       "repo" : "https://github.com/littleplantstudio/api-with-node.git",
